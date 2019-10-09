@@ -6,5 +6,6 @@ end
 
 use Rack::MethodOverride
 run ApplicationController
-use PolicyController
+use FamilyMemberController
+use PlanController
 use UserController
