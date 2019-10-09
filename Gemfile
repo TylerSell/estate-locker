@@ -10,4 +10,6 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+gem 'thin'
+
 
