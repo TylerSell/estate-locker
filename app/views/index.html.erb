@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Estate Locker</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a class="logo" href="/family_members">Family Members</a>
+                <ul class="nav-links">
+                    <% if logged_in? %>
+                    <li><a href="/family_member/new">Create New Family Member</a></li>
+                    <li><a href="/plan/new">Create New Plan</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+
+                    <% else %>
+                    <li><a href="/login">Log In</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <%= yield %>
+</body>
+</html>
