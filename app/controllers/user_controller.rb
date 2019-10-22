@@ -34,7 +34,7 @@ class UserControler < ApplicationController
         else
             redirect '/login'
         end
-      end
+    end
 
     get '/logout' do 
         if session[:user_id] != nil
@@ -44,5 +44,11 @@ class UserControler < ApplicationController
         end
     end
 
+    get '/family_members' do 
+        redirect_if_not_logged_in
+        @user = current_user
+        @family_members = FamilyMember.all 
+        erb :'users/show'
+    end
 
 end
