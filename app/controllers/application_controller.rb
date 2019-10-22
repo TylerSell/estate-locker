@@ -13,8 +13,14 @@ class ApplicationController < Sinatra::Base
         erb :index
     end
 
-    # helpers for login, logout, and current user
+    # helpers for login, logout, current user, and redirect if not logged in
     helpers do 
+
+        def redirect_if_not_logged_in
+            if !logged_in?
+              redirect "/login?error=You have to be logged in to do that"
+            end
+        end
         
         def loggin_in?
             !!session[:user_id]
