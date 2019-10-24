@@ -13,6 +13,8 @@ class FamilyMemberController < ApplicationController
 
     get '/family_members/:id' do 
         redirect_if_not_logged_in
+        @family_member = FamilyMember.find_by_id(params[:id])
+        @plans = @family_member.plans 
         erb :'/family_members/show'
     end
 
