@@ -4,7 +4,7 @@ class UserControler < ApplicationController
         if logged_in?
             redirect '/family_members'
         else
-            erb :'users/signup'
+            erb :'/users/signup'
         end
     end
 
@@ -22,7 +22,7 @@ class UserControler < ApplicationController
         if logged_in?
             redirect '/family_members'
         else
-            erb :'users/login'
+            erb :'/users/login'
         end
     end
 
@@ -48,7 +48,7 @@ class UserControler < ApplicationController
         redirect_if_not_logged_in
         @user = current_user
         @family_members = FamilyMember.all 
-        erb :'users/show'
+        erb :'/users/show'
     end
 
 end
