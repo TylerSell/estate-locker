@@ -21,7 +21,7 @@ class FamilyMemberController < ApplicationController
     get '/family_members/:id/edit' do 
         redirect_if_not_logged_in
         @family_member = FamilyMember.find_by_id(params[:id])
-        erb :'family_members/edit'
+        erb :'/family_members/edit'
     end
 
     patch '/family_members/:id' do 
@@ -34,13 +34,13 @@ class FamilyMemberController < ApplicationController
     get '/family_members/:id/delete' do 
         redirect_if_not_logged_in
         @family_member = FamilyMember.find_by_id(params[:id])
-        erb :'family_members/delete'
+        erb :'/family_members/delete'
     end
 
     delete '/family_members/:id' do 
         @family_member = FamilyMember.find_by_id(params[:id])
         @family_member.destroy
-        redirect 'family_members'
+        redirect '/family_members'
     end
 
 end
