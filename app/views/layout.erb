@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/public/stylesheets/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <div class="navbar">
         <ul class="nav-links">
             <% if logged_in? %>
             <li><a class="logo" href="/family_members"></a></li>
@@ -19,7 +19,7 @@
             <li><a href="/login">Log In</a></li>
             <% end %>
         </ul>
-    </nav>
+    </div>
 
     <%= yield %>
 </body>
