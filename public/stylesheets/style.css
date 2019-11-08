@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #e7e9ed;
+    background-color: rgba(0, 0, 0, 0);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -13,13 +13,54 @@ header {
     padding: 5px 30px;
 }
 
+body {
+    background: rgb(231,233,237);
+    background: -moz-linear-gradient(90deg, rgba(231,233,237,1) 0%, rgba(197,200,212,1) 25%, rgba(197,200,212,1) 75%, rgba(231,233,237,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(231,233,237,1) 0%, rgba(197,200,212,1) 25%, rgba(197,200,212,1) 75%, rgba(231,233,237,1) 100%);
+    background: linear-gradient(90deg, rgba(231,233,237,1) 0%, rgba(197,200,212,1) 25%, rgba(197,200,212,1) 75%, rgba(231,233,237,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e7e9ed",endColorstr="#e7e9ed",GradientType=1);
+}
+
+.flex-index {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#index {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.index {
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.index a {
+    text-decoration: none;
+    color: #39007a;
+    transition: all 0.3s ease 0s;
+}
+
+.index a:hover {
+    color: #1ac8db;
+    text-decoration: underline;
+}
+
 .navbar {
-    background-color: #83858d;
+    background: rgb(91,90,90);
+    background: -moz-linear-gradient(0deg, rgba(91,90,90,1) 0%, rgba(131,133,141,1) 18%, rgba(209,211,221,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(91,90,90,1) 0%, rgba(131,133,141,1) 18%, rgba(209,211,221,1) 100%);
+    background: linear-gradient(0deg, rgba(91,90,90,1) 0%, rgba(131,133,141,1) 18%, rgba(209,211,221,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b5a5a",endColorstr="#d1d3dd",GradientType=1);
     overflow: hidden;
 }  
 
 .navbar a {
-    background-color: #83858d;
+    background-color: rgba(0, 0, 0, 0);
     text-decoration: none;
     color: #39007a;
     font-family: 'Bilbo Swash Caps', cursive;
@@ -33,13 +74,13 @@ header {
 }
 
 .nav-links {
-    background-color: #83858d;
+    background-color: rgba(0, 0, 0, 0);
     list-style-type: none;
     align-items: right;
 }
 
 .nav-links li {
-    background-color: #83858d;
+    background-color: rgba(0, 0, 0, 0);
     display: inline-block;
     padding: 0px 20px;
 }
@@ -47,15 +88,15 @@ header {
 .nav-links li a {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    background-color: #83858d;
+    background-color: rgba(0, 0, 0, 0);
     text-decoration: none;
     color: #39007a;
     transition: all 0.3s ease 0s;
 }
 
 .nav-links li a:hover {
-    background-color: #83858d;
-    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
     text-decoration-color: #1ac8db;
     color: #1ac8db;
 }
