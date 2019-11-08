@@ -1,5 +1,30 @@
-<%# fields for signup form
-First Name:
-Last Name:
-Email:
-Password: %>
+<div class="form-container">
+    <h1 class="h1-body">Sign Up</h1>
+    
+    <form class="input-form" method="post" action="/signup">
+        <div>
+            <input type="text" name="first-name" required="">
+            <label>First Name</label>
+        </div>
+        <div>
+            <input type="text" name="last-name" required="">
+            <label>Last Name</label>
+        </div>
+        <div>
+            <input type="email" name="email" required="">
+            <label>Email</label>
+        </div>
+        <div>
+            <input type="password" name="password" required="">
+            <label>Password</label>
+        </div>
+        <input type="submit" name="submit" value="Submit">
+    
+    
+    
+    </form>
+
+
+
+
+</div>

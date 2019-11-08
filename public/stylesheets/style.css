@@ -28,7 +28,7 @@ body {
     width: 100%;
 }
 
-#index {
+.h1-body {
     text-align: center;
     margin-top: 25px;
 }
@@ -103,4 +103,80 @@ body {
 
 .nav-links li a i {
     background-color: #83858d;
+}
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: #dbdbe4;
+    padding: 25px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    border-radius: 10px;
+}
+
+.form-container h1 {
+    margin: 0 0 30px;
+    color: #39007a;
+}
+
+.form-container input {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #999;
+}
+
+.form-container input[type="submit"] {
+    border-bottom: none;
+    cursor: pointer;
+    background: #39007a;
+    color: #dbdbe4;
+    margin-bottom: 0;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+}
+
+.form-container form div {
+    position: relative;
+}
+
+.form-container form div label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #999;
+    transition: .5s;
+    pointer-events: none;
+}
+
+.form-container input:focus ~ label,
+.form-container input:valid ~ label {
+    top: -12px;
+    left: 0;
+    color: #1ac8db;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.form-container input:focus,
+.form-container input:valid {
+    border-bottom: 2px solid #1ac8db;
+}
+
+.form-container input[type="submit"]:focus,
+.form-container input[type="submit"]:hover {
+    background: #1ac8db;
+}
+
+.form-container input[type="submit"]:valid {
+    border-bottom: none;
 }
