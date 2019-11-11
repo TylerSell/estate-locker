@@ -1,0 +1,43 @@
+<div class="form-container">
+    <h1 class="h1-body">New Family Member</h1>
+    <form class="input-form" method="post" action="/plans/new">
+        <div>
+            <select name="family-member" required="">
+                <% @family_members.each do |member| %>
+                <option value="<% member.id %>"><% member.first_name %> <% member.last_name %></option>
+            </select>
+            <label>Plan Type</label>
+        </div>
+        <div>
+            <select name="type" required="">
+                <option value="life_insurance">Life Insurance</option>
+                <option value="retirement">Retirement</option>
+                <option value="will">Will</option>
+                <option value="assets">Assets</option>
+                <option value="other">Other</option>
+            </select>
+            <label>Plan Type</label>
+        </div>
+        <div>
+            <input type="text" name="company" required="">
+            <label>Company</label>
+        </div>
+        <div>
+            <input type="text" name="account_number">
+            <label>Account Number</label>
+        </div>
+        <div>
+            <input type="tel" name="contact_number" required="">
+            <label>Contact Number</label>
+        </div>
+        <div>
+            <input type="text" name="beneficiary">
+            <label>Beneficiary</label>
+        </div>
+        <div>
+            <textarea name="notes"></textarea>            
+            <label>Notes</label>
+        </div>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</div>
