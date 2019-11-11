@@ -1,3 +1,14 @@
-<%# fields for login form
-Email:
-Password: %>
+<div class="form-container">
+    <h1 class="h1-body">Log In</h1>
+    <form class="input-form" method="post" action="/login">
+        <div>
+            <input type="email" name="email" required="">
+            <label>Email</label>
+        </div>
+        <div>
+            <input type="password" name="password" required="">
+            <label>Password</label>
+        </div>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</div>
