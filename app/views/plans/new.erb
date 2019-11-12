@@ -5,6 +5,7 @@
             <select name="family-member" required="">
                 <% @family_members.each do |member| %>
                 <option value="<% member.id %>"><% member.first_name %> <% member.last_name %></option>
+                <% end %>
             </select>
             <label>Plan Type</label>
         </div>

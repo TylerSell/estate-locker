@@ -1,0 +1,8 @@
+<h1 class="h1-body">Family Members</h1>
+
+<div class="family-flex">
+    <% @family_members.each do |member| %>
+    <div class="member-box">
+        <h3 class="member-name"><% member.first_name %> <% member.last_name %></h3>
+    </div>
+</div>
