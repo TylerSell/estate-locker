@@ -7,7 +7,7 @@ class FamilyMemberController < ApplicationController
 
     post '/family_members/new' do 
         @user = current_user
-        @family_member = @user.family_members.create(:name => params[:name])
+        @family_member = @user.family_members.create(:first_name => params[:first_name], :last_name => params[:last_name], :date_of_birth => params[:date_of_birth])
         redirect '/family_members'
     end
 
