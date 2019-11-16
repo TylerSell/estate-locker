@@ -5,7 +5,7 @@
         <% @plans.each do |plan| %>
             <h3><%= plan.company %></h3>
             <h4><%= plan.type %></h4>
-            <a href="/plan/#{plan.id}">View Plan</a>
+            <a class="plan-button" href="/plan/#{plan.id}">View Plan</a>
         <% end %>
     </div>
 </div>
