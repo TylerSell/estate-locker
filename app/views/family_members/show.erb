@@ -1,0 +1,11 @@
+<div class="flex-index">
+    <h1 class="h1-body"><a href="/family_member/<%= @family_member.id %>/edit"><% @family_member.first_name %> <% @family_member.last_name %></a></h1>
+
+    <div class="plan-box">
+        <% @plans.each do |plan| %>
+            <h3><%= plan.company %></h3>
+            <h4><%= plan.type %></h4>
+            <button type="button">View Plan</button>
+        <% end %>
+    </div>
+</div>
