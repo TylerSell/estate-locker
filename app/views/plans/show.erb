@@ -1,6 +1,10 @@
-<h1 class="h1-body">Family Member <% @family_member.first_name %> <% @family_member.last_name %></h1>
+<div class="flex-index">
+    <h1 class="h1-body">Family Member <% @family_member.first_name %> <% @family_member.last_name %></h1>
 
-<% @plans.each do |plan| %>
-    plan.company
-    plan.type
-    <% end %>
+    <div class="plan-box">
+        <% @plans.each do |plan| %>
+            <h3><% plan.company %></h3>
+            <h4><% plan.type %></h4>
+        <% end %>
+    </div>
+</div>
