@@ -33,6 +33,17 @@ body {
     margin-top: 25px;
 }
 
+.h1-body a {
+    text-decoration: none;
+    color: #39007a;
+    transition: all 0.3s ease 0s;
+}
+
+.h1-body a:hover {
+    color: #1ac8db;
+    text-decoration: underline;
+}
+
 .index {
     text-align: left;
     margin-left: 10%;

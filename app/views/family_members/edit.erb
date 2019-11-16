@@ -1,18 +1,19 @@
 <div class="form-container">
     <h1 class="h1-body">New Family Member</h1>
-    <form class="input-form" method="post" action="/family_members/<%= @family_member.id %>/edit">
+    <form class="input-form" method="post" action="/family_members/<%= @family_member.id %>">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
         <div>
-            <input type="text" name="first_name" required="">
+            <input type="text" name="first_name" placeholder="<%= @family_member.first_name %>">
             <label>First Name</label>
         </div>
         <div>
-            <input type="text" name="last_name" required="">
+            <input type="text" name="last_name" placeholder="<%= @family_member.last_name %>">
             <label>Last Name</label>
         </div>
         <div>
-            <input type="date" name="date_of_birth" required="">
+            <input type="date" name="date_of_birth" placeholder="<%= @family_member.date_of_birth %>">
             <label>Date Of Birth</label>
         </div>
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="edit" value="Edit">
     </form>
 </div>
