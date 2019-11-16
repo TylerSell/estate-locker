@@ -1,6 +1,6 @@
 <div class="form-container">
     <h1 class="h1-body">New Family Member</h1>
-    <form class="input-form" method="post" action="/family_members/new">
+    <form class="input-form" method="post" action="/family_members/<% @family_member.id %>/edit">
         <div>
             <input type="text" name="first_name" required="">
             <label>First Name</label>

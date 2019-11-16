@@ -26,7 +26,9 @@ class FamilyMemberController < ApplicationController
 
     patch '/family_members/:id' do 
         @family_member = FamilyMember.find_by_id(params[:id])
-        @family_member.name = params[:name]
+        @family_member.first_name = params[:first_name]
+        @family_member.last_name = params[:last_name]
+        @family_member.date_of_birth = params[:date_of_birth]
         @family_member.save
         redirect '/family_members'
     end
