@@ -1,0 +1,6 @@
+<p>Are you sure you want to delete <%= @family_member.first_name %> <%= @family_member.last_name %>?</p>
+
+<form method="post" action="/family_members/<%= @family_member.id %>">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
