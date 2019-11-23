@@ -22,11 +22,14 @@ class PlanController < ApplicationController
     get '/plans/:id/edit' do 
         redirect_if_not_logged_in
         @plan = Plan.find_by_id(params[:id])
+        @family_member = @plan.family_member
+        @family_members = FamilyMember.all
         erb :'/plans/edit'
     end
 
     patch '/plans/:id' do 
         @plan = Plan.find_by_id(params[:id])
+        @plan.family_member = params[:family_member]
         @plan.type = params[:type]
         @plan.company = params[:company]
         @plan.account_number = params[:account_number]

@@ -1,9 +1,11 @@
 <div class="form-container">
-    <h1 class="h1-body">New Family Member</h1>
-    <form class="input-form" method="post" action="/plans/new">
+    <h1 class="h1-body">Edit Plan</h1>
+    <form class="input-form" method="post" action="/plans/<%= @plan.id %>%">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
         <div>
             <select name="family_member" required="">
                 <% @family_members.each do |member| %>
+                <option value="<%= @family_member.id %>" selected><%= @family_member.first_name %> <%= @family_member.last_name %></option>
                 <option value="<%= member.id %>"><%= member.first_name %> <%= member.last_name %></option>
                 <% end %>
             </select>
@@ -20,25 +22,25 @@
             <label>Plan Type</label>
         </div>
         <div>
-            <input type="text" name="company" required="">
+            <input type="text" name="company" placeholder="<%= @plan.company %>">
             <label>Company</label>
         </div>
         <div>
-            <input type="text" name="account_number">
+            <input type="text" name="account_number" placeholder="<%= @plan.account_number %>">
             <label>Account Number</label>
         </div>
         <div>
-            <input type="tel" name="contact_number" required="">
+            <input type="tel" name="contact_number" placeholder="<%= @plan.contact_number %>">
             <label>Contact Number</label>
         </div>
         <div>
-            <input type="text" name="beneficiary">
+            <input type="text" name="beneficiary" placeholder="<%= @plan.beneficiary %>">
             <label>Beneficiary</label>
         </div>
         <div>
-            <textarea name="notes"></textarea>            
+            <textarea name="notes" placeholder="<%= @plan.notes %>"></textarea>            
             <label>Notes</label>
         </div>
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="edit" value="Edit">
     </form>
 </div>
