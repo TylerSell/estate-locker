@@ -7,4 +7,3 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       table.integer :user_id
   end
 end
-
