@@ -1,5 +1,5 @@
-class CreatePlans < ActiveRecord::Migration[6.0]
-  def up
+class CreatePlans < ActiveRecord::Migration
+  def change
     create_table :plans do |t|
       t.string :type
       t.string :company
@@ -10,9 +10,5 @@ class CreatePlans < ActiveRecord::Migration[6.0]
       t.integer :family_member_id
       t.integer :user_id
     end
-  end
-
-  def down
-    drop_table :plans 
   end
 end
