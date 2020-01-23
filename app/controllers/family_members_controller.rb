@@ -1,4 +1,4 @@
-class FamilyMemberController < ApplicationController
+class FamilyMembersController < ApplicationController
 
     get '/family_members/new' do 
         redirect_if_not_logged_in

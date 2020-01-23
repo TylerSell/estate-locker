@@ -1,4 +1,4 @@
-class PlanController < ApplicationController
+class PlansController < ApplicationController
 
     get '/plans/new' do 
         redirect_if_not_logged_in
