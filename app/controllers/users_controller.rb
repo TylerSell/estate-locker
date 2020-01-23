@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         if params[:username] == "" || params[:password_digest] == ""
             redirect '/signup'
         else
-            @user = User.create(:username => params[:username], :password_digest => params[:password_digest])
+            @user = User.create(:first_name => [:first_name], :last_name => params[:last_name], :username => params[:username], :password_digest => params[:password_digest])
             session[:user_id] = @user.id
             redirect '/family_members'
         end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     post '/login' do
         @user = User.find_by(:username => params[:username])
-        if @user && @user.authenticate(params[:password_digest])
+        if @user != nil && @user.authenticate(params[:password_digest])
             session[:user_id] = @user.id
             redirect '/family_members'
         else
@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     get '/logout' do 
         if session[:user_id] != nil
             logout!
+            redirect '/'
         else
             redirect '/'
         end
