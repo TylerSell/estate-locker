@@ -5,7 +5,7 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
-  :database => "db/estate_locker.db"
+  :database => "estate_locker.sqlite3.db"
 )
 
 require_all 'app'
