@@ -1,7 +1,8 @@
 <div class="flex-index">
-    <h1 class="h1-body"><%= @family_member.first_name %> <%= @family_member.last_name %></h1>
-
-    <div class="plan-box">
+    <h1 class="h1-body-title"><%= @family_member.first_name %> <%= @family_member.last_name %></h1>
+</div>
+<div class="tile-container">
+    <div class="tile">
         <% @plans.each do |plan| %>
             <h3><%= plan.company %></h3>
             <h4><%= plan.kind_of_plan %></h4>

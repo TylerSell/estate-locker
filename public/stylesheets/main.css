@@ -192,12 +192,22 @@ body {
     border-bottom: none;
 }
 
-.plan-box {
-    width: 400px;
-    background: #dbdbe4;
-    padding: 25px;
+.h1-body-title {
+    text-align: center;
+    margin-top: 25px;
+    color: #1ac8db;
+}
+
+.tile-container {
+
+}
+
+.tile {
+    display: block;
     box-sizing: border-box;
+    background-color: #dbdbe4;
     border: 1px solid rgba(0,0,0,.1);
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
     border-radius: 10px;
+    position: relative;
 }
