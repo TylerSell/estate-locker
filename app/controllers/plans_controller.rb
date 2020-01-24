@@ -9,7 +9,8 @@ class PlansController < ApplicationController
     post '/plans/new' do 
         redirect_if_not_logged_in
         @user = current_user
-        @plan = @user.family_members.plan.create(:type => params[:type], :company => params[:company], :account_number => params[:account_number], :contact_number => params[:contact_number])
+        @family_member = FamilyMember.find_by_id(params[:family_member])
+        @plan = @family_member.plans.create(:kind_of_plan => params[:kind_of_plan], :company => params[:company], :account_number => params[:account_number], :contact_number => params[:contact_number])
         redirect '/family_members'
     end
 
@@ -30,7 +31,7 @@ class PlansController < ApplicationController
     patch '/plans/:id' do 
         @plan = Plan.find_by_id(params[:id])
         @plan.family_member = params[:family_member]
-        @plan.type = params[:type]
+        @plan.kind_of_plan = params[:kind_of_plan]
         @plan.company = params[:company]
         @plan.account_number = params[:account_number]
         @plan.contact_number = params[:contact_number]

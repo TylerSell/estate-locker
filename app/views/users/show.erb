@@ -3,7 +3,7 @@
 <div class="family-flex">
     <% @family_members.each do |member| %>
     <div class="member-box">
-        <h3 class="member-name"><%= member.first_name %> <%= member.last_name %></h3>
+        <h3 class="member-name"><a href=/family_members/<%= member.id %>><%= member.first_name %> <%= member.last_name %></a></h3>
     </div>
     <% end %>
 </div>
