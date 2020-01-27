@@ -6,8 +6,8 @@
         <div class="tile">    
             <h3><%= plan.company %></h3>
             <h4><%= plan.kind_of_plan %></h4>
-            <a class="plan-button" href="/plan/<%= plan.id %>">View Plan</a><br />
-            <a href="/family_member/<%= @family_member.id %>/edit"> Edit </a> <a href="/family_member/<%= @family_member.id %>/delete"> Delete </a>
+            <a class="plan-button" href="/plans/<%= plan.id %>">View Plan</a><br />
+            <a href="/family_members/<%= @family_member.id %>/edit"> Edit </a> <a href="/family_members/<%= @family_member.id %>/delete"> Delete </a>
         </div> 
     <% end %>
 </div>

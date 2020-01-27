@@ -17,26 +17,28 @@ class PlansController < ApplicationController
     get '/plans/:id' do 
         redirect_if_not_logged_in
         @plan = Plan.find_by_id(params[:id])
+        @family_member = FamilyMember.find_by_id(@plan.family_member_id)
         erb :'/plans/show'
     end
 
     get '/plans/:id/edit' do 
         redirect_if_not_logged_in
         @plan = Plan.find_by_id(params[:id])
-        @family_member = @plan.family_member
+        # @family_member = @plan.family_members
         @family_members = FamilyMember.all
         erb :'/plans/edit'
     end
 
     patch '/plans/:id' do 
         @plan = Plan.find_by_id(params[:id])
-        @plan.family_member = params[:family_member]
+        @plan.family_member_id = params[:family_member]
         @plan.kind_of_plan = params[:kind_of_plan]
         @plan.company = params[:company]
         @plan.account_number = params[:account_number]
         @plan.contact_number = params[:contact_number]
+        @plan.beneficiary = params[:beneficiary]
         @plan.save
-        redirect '/family_members'
+        redirect '/plans/:id'
     end
 
     get '/plans/:id/delete' do 

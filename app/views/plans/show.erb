@@ -8,7 +8,7 @@
         <h4>Contact Number: <%= @plan.contact_number %></h4>
         <h4>Beneficiary: <%= @plan.beneficiary %></h4>
         <h4>Notes: <%= @plan.notes %></h4>
-        <a class="plan-button" href="/plan/<%= plan.id %>/edit">Edit Plan</a>
-        <a class="plan-button" href="/plan/<%= plan.id %>/delete">Delete Plan</a>
+        <a class="plan-button" href="/plans/<%= @plan.id %>/edit">Edit Plan</a>
+        <a class="plan-button" href="/plans/<%= @plan.id %>/delete">Delete Plan</a>
     </div>
 </div>

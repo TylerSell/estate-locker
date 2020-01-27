@@ -5,7 +5,6 @@
         <div>
             <select name="family_member" required="">
                 <% @family_members.each do |member| %>
-                <option value="<%= @family_member.id %>" selected><%= @family_member.first_name %> <%= @family_member.last_name %></option>
                 <option value="<%= member.id %>"><%= member.first_name %> <%= member.last_name %></option>
                 <% end %>
             </select>
