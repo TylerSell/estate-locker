@@ -31,6 +31,7 @@ body {
 .h1-body {
     text-align: center;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .h1-body a {
@@ -190,12 +191,6 @@ body {
 
 .form-container input[type="submit"]:valid {
     border-bottom: none;
-}
-
-.h1-body-title {
-    text-align: center;
-    margin-top: 25px;
-    color: #1ac8db;
 }
 
 .tile-container {
