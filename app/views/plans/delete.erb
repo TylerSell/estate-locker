@@ -1,4 +1,4 @@
-<p>Are you sure you want to delete <%= @plan.type %> with <%= @plan.company %>?</p>
+<p>Are you sure you want to delete <%= @plan.kind_of_plan %> with <%= @plan.company %>?</p>
 
 <form method="post" action="/plans/<%= @plan.id %>">
     <input id="hidden" type="hidden" name="_method" value="delete">

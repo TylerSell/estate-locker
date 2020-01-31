@@ -23,9 +23,10 @@ class PlansController < ApplicationController
 
     get '/plans/:id/edit' do 
         redirect_if_not_logged_in
+        @user = current_user
         @plan = Plan.find_by_id(params[:id])
-        # @family_member = @plan.family_members
-        @family_members = FamilyMember.all
+        @family_members = @user.family_members
+        # @family_members = FamilyMember.all
         erb :'/plans/edit'
     end
 

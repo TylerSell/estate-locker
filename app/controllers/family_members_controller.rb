@@ -15,21 +15,13 @@ class FamilyMembersController < ApplicationController
         redirect_if_not_logged_in
         @family_member = FamilyMember.find_by_id(params[:id])
         @plans = @family_member.plans
-        if current_user == @family_member.user_id
-            erb :'/family_members/show'
-        else
-            redirect '/family_members'
-        end
+        erb :'/family_members/show'
     end
 
     get '/family_members/:id/edit' do 
         redirect_if_not_logged_in
         @family_member = FamilyMember.find_by_id(params[:id])
-        if current_user == @family_member.user_id
-            erb :'/family_members/edit'
-        else
-            redirect '/family_members'
-        end
+        erb :'/family_members/edit'
     end
 
     patch '/family_members/:id' do 
@@ -44,21 +36,13 @@ class FamilyMembersController < ApplicationController
     get '/family_members/:id/delete' do 
         redirect_if_not_logged_in
         @family_member = FamilyMember.find_by_id(params[:id])
-        if current_user == @family_member.user_id
-            erb :'/family_members/delete'
-        else
-            redirect '/family_members'
-        end
+        erb :'/family_members/delete'
     end
 
     delete '/family_members/:id' do 
         @family_member = FamilyMember.find_by_id(params[:id])
-        if current_user == @family_member.user_id
-            @family_member.destroy
-            redirect '/family_members'
-        else
-            redirect 'family_members/:id'
-        end
+        @family_member.destroy
+        redirect '/family_members'
     end
 
 end
