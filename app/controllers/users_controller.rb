@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         if params[:username] == "" || params[:password_digest] == ""
             redirect '/signup'
         else
-            @user = User.create(:first_name => [:first_name], :last_name => params[:last_name], :username => params[:username], :password_digest => params[:password_digest])
+            @user = User.create(:first_name => params[:first_name], :last_name => params[:last_name], :username => params[:username], :password_digest => params[:password])
             session[:user_id] = @user.id
             redirect '/family_members'
         end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     post '/login' do
         @user = User.find_by(:username => params[:username])
-        if @user && @user.authenticate(params[:password_digest])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect '/family_members'
         else
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     get '/family_members' do 
         redirect_if_not_logged_in
         @user = current_user
-        @family_members = FamilyMember.all 
+        @family_members = @user.family_members
         erb :'/users/show'
     end
 
