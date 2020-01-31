@@ -2,7 +2,8 @@ class PlansController < ApplicationController
 
     get '/plans/new' do 
         redirect_if_not_logged_in
-        @family_members = FamilyMember.all 
+        @user = current_user
+        @family_members = @user.family_members 
         erb :'/plans/new'
     end
 
@@ -10,7 +11,7 @@ class PlansController < ApplicationController
         redirect_if_not_logged_in
         @user = current_user
         @family_member = FamilyMember.find_by_id(params[:family_member])
-        @plan = @family_member.plans.create(:kind_of_plan => params[:kind_of_plan], :company => params[:company], :account_number => params[:account_number], :contact_number => params[:contact_number])
+        @plan = @family_member.plans.create(:kind_of_plan => params[:kind_of_plan], :company => params[:company], :account_number => params[:account_number], :contact_number => params[:contact_number], :beneficiary => params[:beneficiary], :notes => params[:notes], :user_id => @user.id)
         redirect '/family_members'
     end
 

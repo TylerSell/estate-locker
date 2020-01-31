@@ -13,15 +13,25 @@ class FamilyMembersController < ApplicationController
 
     get '/family_members/:id' do 
         redirect_if_not_logged_in
+        @user = current_user
         @family_member = FamilyMember.find_by_id(params[:id])
-        @plans = @family_member.plans 
-        erb :'/family_members/show'
+        @plans = @family_member.plans
+        if @user.id == @family_member.user_id
+            erb :'/family_members/show'
+        else
+            redirect '/family_members'
+        end
     end
 
     get '/family_members/:id/edit' do 
         redirect_if_not_logged_in
+        @user = current_user
         @family_member = FamilyMember.find_by_id(params[:id])
-        erb :'/family_members/edit'
+        if @user.id == @family_member.user_id
+            erb :'/family_members/edit'
+        else
+            redirect '/family_members'
+        end
     end
 
     patch '/family_members/:id' do 
@@ -35,14 +45,24 @@ class FamilyMembersController < ApplicationController
 
     get '/family_members/:id/delete' do 
         redirect_if_not_logged_in
+        @user = current_user
         @family_member = FamilyMember.find_by_id(params[:id])
-        erb :'/family_members/delete'
+        if @user.id == @family_member.user_id
+            erb :'/family_members/delete'
+        else
+            redirect '/family_members'
+        end
     end
 
     delete '/family_members/:id' do 
+        @user = current_user
         @family_member = FamilyMember.find_by_id(params[:id])
-        @family_member.destroy
-        redirect '/family_members'
+        if @user.id == @family_member.user_id
+            @family_member.destroy
+            redirect '/family_members'
+        else
+            redirect 'family_members/:id'
+        end
     end
 
 end

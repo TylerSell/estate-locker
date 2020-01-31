@@ -12,7 +12,8 @@ class UsersController < ApplicationController
         if params[:username] == "" || params[:password_digest] == ""
             redirect '/signup'
         else
-            @user = User.create(:first_name => params[:first_name], :last_name => params[:last_name], :username => params[:username], :password_digest => params[:password])
+            @user = User.new(:first_name => params[:first_name], :last_name => params[:last_name], :username => params[:username], :password => params[:password])
+            @user.save
             session[:user_id] = @user.id
             redirect '/family_members'
         end
