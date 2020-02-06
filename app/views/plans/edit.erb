@@ -2,7 +2,7 @@
     <h1 class="h1-body">Edit Plan</h1>
     <form class="input-form" method="post" action="/plans/<%= @plan.id %>">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-        <div>
+        <div class="select-box">
             <select name="family_member" required="">
                 <% @family_members.each do |member| %>
                 <option value="<%= member.id %>"><%= member.first_name %> <%= member.last_name %></option>
@@ -10,7 +10,7 @@
             </select>
             <label>Plan Type</label>
         </div>
-        <div>
+        <div class="select-box">
             <select name="kind_of_plan" required="">
                 <option value="life_insurance">Life Insurance</option>
                 <option value="retirement">Retirement</option>
