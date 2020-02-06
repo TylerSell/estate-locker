@@ -9,8 +9,9 @@ class PlansController < ApplicationController
 
     post '/plans/new' do 
         redirect_if_not_logged_in
+        @user = current_user
         @family_member = FamilyMember.find_by_id(params[:family_member])
-        @plan = @family_member.plans.create(:kind_of_plan => params[:kind_of_plan], :company => params[:company], :account_number => params[:account_number], :contact_number => params[:contact_number], :beneficiary => params[:beneficiary], :notes => params[:notes], :user_id => current_user)
+        @plan = @family_member.plans.create(:kind_of_plan => params[:kind_of_plan], :company => params[:company], :account_number => params[:account_number], :contact_number => params[:contact_number], :beneficiary => params[:beneficiary], :notes => params[:notes], :user_id => @user.id)
         redirect '/family_members'
     end
 
@@ -38,8 +39,10 @@ class PlansController < ApplicationController
         @plan.account_number = params[:account_number]
         @plan.contact_number = params[:contact_number]
         @plan.beneficiary = params[:beneficiary]
+        @plan.notes = params[:notes]
         @plan.save
-        redirect '/plans/:id'
+        # redirect '/plans/:id'
+        redirect '/family_members'
     end
 
     get '/plans/:id/delete' do 
