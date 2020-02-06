@@ -27,7 +27,6 @@ class PlansController < ApplicationController
         @user = current_user
         @plan = Plan.find_by_id(params[:id])
         @family_members = @user.family_members
-        # @family_members = FamilyMember.all
         erb :'/plans/edit'
     end
 
@@ -41,7 +40,6 @@ class PlansController < ApplicationController
         @plan.beneficiary = params[:beneficiary]
         @plan.notes = params[:notes]
         @plan.save
-        # redirect '/plans/:id'
         redirect '/family_members'
     end
 
