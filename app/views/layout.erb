@@ -5,26 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Estate Locker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css" />
-    <!-- <link rel="stylesheet" href="/stylesheets/main.css" /> -->
-    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6396b028af.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="navbar">
-        <a class="logo" href="/family_members">Estate Locker</a>
-        <ul class="nav-links">
-            <% if logged_in? %>
-            <li><a href="/family_members/new">New Family Member</a></li>
-            <li><a href="/plans/new">New Plan</a></li>
-            <li><a href="/logout">Log Out</a></li>
-            </ul>
+    <nav class="navbar has-background-light" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-text-weight-bold has-text-link is-capitalized is-size-3" href="/family_members"><i class="fas fa-lock is-info"></i>&nbsp;Estate Locker</a>
+        </div>
 
+        <div class="navbar-menu">
+            <% if logged_in? %>
+                <div class="navbar-start">
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a class="button is-light has-text-weight-semibold" href="/family_members/new">
+                                <span>New Family Member</span>
+                                </a>
+                            </p>
+
+                            <p class="control">
+                                <a class="button is-light has-text-weight-semibold" href="/plans/new">
+                                <span>New Plan</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <p class="control">
+                            <a class="button is-link has-text-weight-medium" href="/logout">
+                            <span>Log Out</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            
             <% else %>
-            <li><a href="/signup">Sign Up</a></li>
-            <li><a href="/login">Log In</a></li>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a class="button is-link is-inverted has-text-weight-medium" href="/signup">
+                                <span>Sign Up</span>
+                                </a>
+                            </p>
+
+                            <p class="control">
+                                <a class="button is-primary has-text-weight-medium" href="/login">
+                                <span>Log In</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             <% end %>
-        </ul>
-    </header>
+        </div>
+    </nav>
 
     <%= yield %>
 </body>
