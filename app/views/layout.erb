@@ -5,34 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Estate Locker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css" />
+    <script type="text/javascript" src="/javascripts/vanilla.js"></script>
     <script src="https://kit.fontawesome.com/6396b028af.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <section class="hero has-background-white-ter is-fullheight">
         <div class="hero-head">
-            <nav class="navbar has-background-white-ter" role="navigation" aria-label="main navigation">
+            <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item has-text-weight-bold has-text-link is-capitalized is-size-3" href="/family_members"><i class="fas fa-lock is-info"></i>&nbsp;Estate Locker</a>
+                    
+                    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
                 </div>
 
-                <div class="navbar-menu">
+                <div class="navbar-menu is-shadowless" id="navMenu">
                     <% if logged_in? %>
                         <div class="navbar-start">
-                            <div class="navbar-item">
-                                <div class="field is-grouped">
-                                    <p class="control">
-                                        <a class="button is-white-ter has-text-weight-semibold" href="/family_members/new">
-                                        <span>New Family Member</span>
-                                        </a>
-                                    </p>
-
-                                    <p class="control">
-                                        <a class="button is-white-ter has-text-weight-semibold" href="/plans/new">
-                                        <span>New Plan</span>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
+                            <a href="/" class="navbar-item has-text-weight-semibold">
+                                Home
+                            </a>
+                            <a href="/family_members/new" class="navbar-item has-text-weight-semibold">
+                                New Family Member
+                            </a>
+                            <a href="/plans/new" class="navbar-item has-text-weight-semibold">
+                                New Plan
+                            </a>
                         </div>
 
                         <div class="navbar-end">
@@ -47,6 +48,11 @@
                     
                     <% else %>
 
+                        <div class="navbar-start">
+                            <a href="/" class="navbar-item has-text-weight-semibold">
+                                Home
+                            </a>
+                        </div>
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="field is-grouped">
@@ -74,7 +80,7 @@
 
         <div class="hero-foot">
             <div class="content has-text-centered is-info">
-                <p class="has-text-link has-text-weight-medium">
+                <p class="has-text-link has-text-weight-medium" style="padding-bottom: 15px;">
                     &copy;&nbsp;Tyler Sell
                 </p>
             </div>
