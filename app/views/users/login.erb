@@ -1,4 +1,45 @@
-<div class="form-container">
+<div class="hero-body">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <div class="tile is-child is-invisible">
+                </div>
+                <div class="tile is-6 is-child">
+                    <div class="box">
+                        <p class="title has-text-centered">
+                            Sign Up
+                        </p>
+                        <form class="input-form" method="post" action="/login">
+                            <div class="field">
+                                <label for="username" class="label">Email</label>
+                                <div class="control">
+                                    <input type="email" class="input has-background-white-ter" name="username" placeholder="john.doe@example.com" required="">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="password" class="label">Password</label>
+                                <div class="control">
+                                    <input type="password" class="input has-background-white-ter" name="password" placeholder="Password" required="">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input type="submit" name="submit" value="Submit" class="button is-primary">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tile is-child is-invisible">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%# OLD FORM AND STYLE BELOW %>
+
+<%# <div class="form-container">
     <h1 class="h1-body">Log In</h1>
     <form class="input-form" method="post" action="/login">
         <div>
@@ -11,4 +52,4 @@
         </div>
         <input type="submit" name="submit" value="Submit">
     </form>
-</div>
+</div> %>
