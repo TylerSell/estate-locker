@@ -1,3 +1,49 @@
+<div class="hero-body">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <div class="tile is-child is-invisible">
+                </div>
+                <div class="tile is-6 is-child">
+                    <div class="box">
+                        <p class="title has-text-centered is-capitalized">
+                            Edit <%= @family_member.first_name %> <%= @family_member.last_name %>
+                        </p>
+                        <form class="input-form" method="post" action="/family_members/<%= @family_member.id %>">
+                        <input id="hidden" type="hidden" name="_method" value="PATCH">
+                            <div class="field">
+                                <label for="first_name" class="label">First Name</label>
+                                <div class="control">
+                                    <input type="text" class="input has-background-white-ter" name="first_name" value="<%= @family_member.first_name %>">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="last_name" class="label">Last Name</label>
+                                <div class="control">
+                                    <input type="text" class="input has-background-white-ter" name="last_name" value="<%= @family_member.last_name %>">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="date_of_birth" class="label">Date Of Birth</label>
+                                <div class="control">
+                                    <input type="date" class="input has-background-white-ter" name="date_of_birth" value="<%= @family_member.date_of_birth %>">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input type="submit" name="submit" value="Submit" class="button is-primary">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tile is-child is-invisible">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="form-container">
     <h1 class="h1-body">New Family Member</h1>
     <form class="input-form" method="post" action="/family_members/<%= @family_member.id %>">
