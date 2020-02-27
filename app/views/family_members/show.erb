@@ -1,13 +1,39 @@
-<div class="flex-index">
-    <h1 class="h1-body"><%= @family_member.first_name %> <%= @family_member.last_name %></h1>
-    <a href="/family_members/<%= @family_member.id %>/edit"> Edit Family Member</a> <a href="/family_members/<%= @family_member.id %>/delete"> Delete Family Member</a>
-</div>
-<div class="tile-container">
-    <% @plans.each do |plan| %>
-        <div class="tile">    
-            <h3><%= plan.company %></h3>
-            <h4><%= plan.kind_of_plan %></h4>
-            <a class="plan-button" href="/plans/<%= plan.id %>">View Plan</a>
-        </div> 
-    <% end %>
+<div class="hero-body">
+    <div class="container is-fluid">
+        <div class="columns">
+            <div class="column is-11">
+                <h1 class="title has-text-centered is-capitalized">
+                    <%= @family_member.first_name %> <%= @family_member.last_name %>
+                </h1>
+                <h2 class="subtitle has-text-centered">
+                    <%= @family_member.date_of_birth %>
+                </h2>
+                <div class="buttons is-centered" style="padding-bottom: 30px;">
+                    <a href="/family_members/<%= @family_member.id %>/edit" class="button is-warning">Edit</a>
+                    <a href="/family_members/<%= @family_member.id %>/delete" class="button is-danger">Delete</a>
+                </div>
+                <div class="columns is-multiline">
+                    <% @plans.each do |plan| %>
+                        <div class="column is-3">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="title has-text-centered is-capitalized">
+                                        <%= plan.company %>
+                                    </p>
+                                    <p class="subtitle has-text-centered">
+                                        <%= plan.kind_of_plan %>
+                                    </p>
+                                </div>
+                                <footer class="card-footer">
+                                    <a href="/plans/<%= plan.id %>" class="card-footer-item">View</a>
+                                    <a href="/plans/<%= plan.id %>/edit" class="card-footer-item">Edit</a>
+                                    <a href="/plans/<%= plan.id %>/delete" class="card-footer-item">Delete</a>
+                                </footer>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

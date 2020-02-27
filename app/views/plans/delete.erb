@@ -1,6 +1,31 @@
-<p>Are you sure you want to delete <%= @plan.kind_of_plan %> with <%= @plan.company %>?</p>
-
-<form method="post" action="/plans/<%= @plan.id %>">
-    <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
-</form>
+<div class="hero-body">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <div class="tile is-child is-invisible">
+                </div>
+                <div class="tile is-6 is-child">
+                    <article class="message is-warning box is-paddingless">
+                        <div class="message-header">
+                            <p class="has-text-centered is-capitalized"><%= @plan.company %><%= @plan.kind_of_plan %></p>
+                        </div>
+                        <div class="message-body">
+                            <p>
+                                Are you sure you want to delete <strong class="is-capitalized"><%= @plan.kind_of_plan %></strong> with <strong class="is-capitalized"><%= @plan.company %></strong>?
+                            </p>
+                            <br>
+                            <form method="post" action="/plans/<%= @plan.id %>">
+                                <input id="hidden" type="hidden" name="_method" value="delete">
+                                <div class="control">
+                                    <input type="submit" value="Delete" class="button is-danger is-right">
+                                </div>
+                            </form>
+                        </div>
+                    </article>
+                </div>
+                <div class="tile is-child is-invisible">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
