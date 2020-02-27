@@ -13,7 +13,7 @@
         <div class="hero-head">
             <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                    <a class="navbar-item has-text-weight-bold has-text-link is-capitalized is-size-3" href="/family_members"><i class="fas fa-lock is-info"></i>&nbsp;Estate Locker</a>
+                    <a class="navbar-item has-text-weight-bold has-text-link is-capitalized is-size-3" href="/"><i class="fas fa-lock is-info"></i>&nbsp;Estate Locker</a>
                     
                     <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
                         <span aria-hidden="true"></span>
@@ -25,8 +25,8 @@
                 <div class="navbar-menu is-shadowless" id="navMenu">
                     <% if logged_in? %>
                         <div class="navbar-start">
-                            <a href="/" class="navbar-item has-text-weight-semibold">
-                                Home
+                            <a href="/family_members" class="navbar-item has-text-weight-semibold">
+                                Family Members
                             </a>
                             <a href="/family_members/new" class="navbar-item has-text-weight-semibold">
                                 New Family Member
@@ -48,11 +48,6 @@
                     
                     <% else %>
 
-                        <div class="navbar-start">
-                            <a href="/" class="navbar-item has-text-weight-semibold">
-                                Home
-                            </a>
-                        </div>
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="field is-grouped">
