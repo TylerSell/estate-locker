@@ -1,45 +1,85 @@
-<div class="form-container">
-    <h1 class="h1-body">Edit Plan</h1>
-    <form class="input-form" method="post" action="/plans/<%= @plan.id %>">
-    <input id="hidden" type="hidden" name="_method" value="PATCH">
-        <div class="select-box">
-            <select name="family_member" required="">
-                <% @family_members.each do |member| %>
-                <option value="<%= member.id %>"><%= member.first_name %> <%= member.last_name %></option>
-                <% end %>
-            </select>
-            <label>Plan Type</label>
+<div class="hero-body">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <div class="tile is-child is-invisible">
+                </div>
+                <div class="tile is-6 is-child">
+                    <div class="box">
+                        <p class="title has-text-centered">
+                            Edit Plan
+                        </p>
+                        <form class="input-form" method="post" action="/plans/<%= @plan.id %>">
+                        <input id="hidden" type="hidden" name="_method" value="PATCH">
+                            <div class="field">
+                                <label for="family_member" class="label">Family Member</label>
+                                <div class="control is-expanded">
+                                    <div class="select">
+                                    <select class="is-capitalized" name="family_member" required="">
+                                        <option value="<%= @family_member.id %>" selected><%= @family_member.first_name %> <%= @family_member.last_name %>
+                                        <% @family_members.each do |member| %>
+                                        <option value="<%= member.id %>"><%= member.first_name %> <%= member.last_name %></option>
+                                        <% end %>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="kind_of_plan" class="label">Kind Of Plan</label>
+                                <div class="control is-expanded">
+                                    <div class="select">
+                                    <select class="is-capitalized" name="kind_of_plan" required="">
+                                        <option value="<%= @plan.kind_of_plan %>" selected><%= @plan.kind_of_plan %>
+                                        <option value="Life Insurance">Life Insurance</option>
+                                        <option value="Retirement">Retirement</option>
+                                        <option value="Will">Will</option>
+                                        <option value="Assets">Assets</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="company" class="label">Company Name</label>
+                                <div class="control">
+                                    <input type="text" class="input has-background-white-ter" name="company" value="<%= @plan.company %>" required="">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="account_number" class="label">Account Number</label>
+                                <div class="control">
+                                    <input type="text" class="input has-background-white-ter" name="account_number" value="<%= @plan.account_number %>">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="contact_number" class="label">Contact Number</label>
+                                <div class="control">
+                                    <input type="tel" class="input has-background-white-ter" name="contact_number" value="<%= @plan.contact_number %>" required="">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="beneficiary" class="label">Beneficiary</label>
+                                <div class="control">
+                                    <input type="text" class="input has-background-white-ter" name="beneficiary" value="<%= @plan.beneficiary %>">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="notes" class="label">Message</label>
+                                <div class="control">
+                                    <textarea class="textarea has-background-white-ter" name="notes" value="<%= @plan.notes %>"></textarea>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input type="submit" name="submit" value="Submit" class="button is-primary">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tile is-child is-invisible">
+                </div>
+            </div>
         </div>
-        <div class="select-box">
-            <select name="kind_of_plan" required="">
-                <option value="life_insurance">Life Insurance</option>
-                <option value="retirement">Retirement</option>
-                <option value="will">Will</option>
-                <option value="assets">Assets</option>
-                <option value="other">Other</option>
-            </select>
-            <label>Kind of Plan</label>
-        </div>
-        <div>
-            <input type="text" name="company" placeholder="<%= @plan.company %>">
-            <label>Company</label>
-        </div>
-        <div>
-            <input type="text" name="account_number" placeholder="<%= @plan.account_number %>">
-            <label>Account Number</label>
-        </div>
-        <div>
-            <input type="tel" name="contact_number" placeholder="<%= @plan.contact_number %>">
-            <label>Contact Number</label>
-        </div>
-        <div>
-            <input type="text" name="beneficiary" placeholder="<%= @plan.beneficiary %>">
-            <label>Beneficiary</label>
-        </div>
-        <div>
-            <textarea name="notes" placeholder="<%= @plan.notes %>"></textarea>            
-            <label>Notes</label>
-        </div>
-        <input type="submit" name="edit" value="Edit">
-    </form>
+    </div>
 </div>

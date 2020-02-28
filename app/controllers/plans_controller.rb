@@ -27,6 +27,7 @@ class PlansController < ApplicationController
         @user = current_user
         @plan = Plan.find_by_id(params[:id])
         @family_members = @user.family_members
+        @family_member = FamilyMember.find_by_id(@plan.family_member_id)
         erb :'/plans/edit'
     end
 
@@ -46,6 +47,7 @@ class PlansController < ApplicationController
     get '/plans/:id/delete' do 
         redirect_if_not_logged_in
         @plan = Plan.find_by_id(params[:id])
+        @family_member = FamilyMember.find_by_id(@plan.family_member_id)
         erb :'/plans/delete'
     end
 

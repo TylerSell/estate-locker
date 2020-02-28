@@ -1,14 +1,57 @@
-<div class="flex-index">
-    <h1 class="h1-body"><a href="/family_member/<%= @plan.family_member_id %>/edit"><% @family_member.first_name %> <% @family_member.last_name %></a></h1>
-
-    <div class="plan-show">
-        <h2>Kind of Plan: <%= @plan.kind_of_plan %></h2>
-        <h3>Company: <%= @plan.company %></h3>
-        <h4>Account Number: <%= @plan.account_number %></h4>
-        <h4>Contact Number: <%= @plan.contact_number %></h4>
-        <h4>Beneficiary: <%= @plan.beneficiary %></h4>
-        <h4>Notes: <%= @plan.notes %></h4>
-        <a class="plan-button" href="/plans/<%= @plan.id %>/edit">Edit Plan</a>
-        <a class="plan-button" href="/plans/<%= @plan.id %>/delete">Delete Plan</a>
+<div class="hero-body">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <div class="tile is-child is-invisible">
+                </div>
+                <div class="tile is-6 is-child">
+                    <div class="box">
+                        <h1 class="title has-text-centered is-capitalized">
+                            <%= @family_member.first_name %> <%= @family_member.last_name %>
+                        </h1>
+                        <table class="table is-striped is-bordered is-fullwidth">
+                            <tr>
+                                <th>Kind of Plan:</th>
+                                <td><%= @plan.kind_of_plan %></td>
+                            </tr>
+                            <tr>
+                                <th>Company:</th>
+                                <td><%= @plan.company %></td>
+                            </tr>
+                            <tr>
+                                <th>Account Number:</th>
+                                <td><%= @plan.account_number %></td>
+                            </tr>
+                            <tr>
+                                <th>Contact Number:</th>
+                                <td><%= @plan.contact_number %></td>
+                            </tr>
+                            <tr>
+                                <th>Beneficiary:</th>
+                                <td><%= @plan.beneficiary %></td>
+                            </tr>
+                            <tr>
+                                <th>Notes:</th>
+                                <td><%= @plan.notes %></td>
+                            </tr>
+                        </table>
+                        <div class="level">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <a href="/plans/<%= @plan.id %>/edit" class="button is-warning">Edit</a>
+                                </div>
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item">
+                                    <a href="/plans/<%= @plan.id %>/delete" class="button is-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-child is-invisible">
+                </div>
+            </div>
+        </div>
     </div>
 </div>

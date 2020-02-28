@@ -9,19 +9,34 @@
                         <p class="title has-text-centered">
                             New Plan
                         </p>
-                        <form class="input-form" method="post" action="/family_members/new">
+                        <form class="input-form" method="post" action="/plans/new">
                             <div class="field">
-                                <%# 
-                                
-                                <div>
-                                    <input type="text" name="beneficiary">
-                                    <label>Beneficiary</label>
+                                <label for="family_member" class="label">Family Member</label>
+                                <div class="control is-expanded">
+                                    <div class="select">
+                                    <select class="is-capitalized" name="family_member" required="">
+                                        <% @family_members.each do |member| %>
+                                        <option value="<%= member.id %>"><%= member.first_name %> <%= member.last_name %></option>
+                                        <% end %>
+                                    </select>
+                                    </div>
                                 </div>
-                                <div>
-                                    <textarea name="notes"></textarea>            
-                                    <label>Notes</label>
-                                </div> 
-                                %>
+                            </div>
+                            <div class="field">
+                                <label for="kind_of_plan" class="label">Kind Of Plan</label>
+                                <div class="control is-expanded">
+                                    <div class="select">
+                                    <select class="is-capitalized" name="kind_of_plan" required="">
+                                        <option value="Life Insurance">Life Insurance</option>
+                                        <option value="Retirement">Retirement</option>
+                                        <option value="Will">Will</option>
+                                        <option value="Assets">Assets</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
                                 <label for="company" class="label">Company Name</label>
                                 <div class="control">
                                     <input type="text" class="input has-background-white-ter" name="company" placeholder="Company Name" required="">
@@ -33,16 +48,22 @@
                                     <input type="text" class="input has-background-white-ter" name="account_number" placeholder="A257G5879">
                                 </div>
                             </div>
-                            <%# 
-                                <div>
-                                    <input type="tel" name="contact_number" required="">
-                                    <label>Contact Number</label>
-                                </div> 
-                            %>
                             <div class="field">
                                 <label for="contact_number" class="label">Contact Number</label>
                                 <div class="control">
                                     <input type="tel" class="input has-background-white-ter" name="contact_number" placeholder="800-123-4567" required="">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="beneficiary" class="label">Beneficiary</label>
+                                <div class="control">
+                                    <input type="text" class="input has-background-white-ter" name="beneficiary" placeholder="Beneficiary Name">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="notes" class="label">Message</label>
+                                <div class="control">
+                                    <textarea class="textarea has-background-white-ter" name="notes" placeholder="Notes"></textarea>
                                 </div>
                             </div>
                             <div class="field">
@@ -58,49 +79,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="form-container">
-    <h1 class="h1-body">New Plan</h1>
-    <form class="input-form" method="post" action="/plans/new">
-        <div>
-            <select name="family_member" required="">
-                <% @family_members.each do |member| %>
-                <option value="<%= member.id %>"><%= member.first_name %> <%= member.last_name %></option>
-                <% end %>
-            </select>
-            <label>Family Member</label>
-        </div>
-        <div>
-            <select name="kind_of_plan" required="">
-                <option value="Life Insurance">Life Insurance</option>
-                <option value="Retirement">Retirement</option>
-                <option value="Will">Will</option>
-                <option value="Assets">Assets</option>
-                <option value="Other">Other</option>
-            </select>
-            <label>Kind of Plan</label>
-        </div>
-        <div>
-            <input type="text" name="company" required="">
-            <label>Company</label>
-        </div>
-        <div>
-            <input type="text" name="account_number">
-            <label>Account Number</label>
-        </div>
-        <div>
-            <input type="tel" name="contact_number" required="">
-            <label>Contact Number</label>
-        </div>
-        <div>
-            <input type="text" name="beneficiary">
-            <label>Beneficiary</label>
-        </div>
-        <div>
-            <textarea name="notes"></textarea>            
-            <label>Notes</label>
-        </div>
-        <input type="submit" name="submit" value="Submit">
-    </form>
 </div>

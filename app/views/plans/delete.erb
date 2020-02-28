@@ -7,11 +7,11 @@
                 <div class="tile is-6 is-child">
                     <article class="message is-warning box is-paddingless">
                         <div class="message-header">
-                            <p class="has-text-centered is-capitalized"><%= @plan.company %><%= @plan.kind_of_plan %></p>
+                            <p class="has-text-centered is-capitalized"><%= @plan.company %> - <%= @plan.kind_of_plan %></p>
                         </div>
                         <div class="message-body">
                             <p>
-                                Are you sure you want to delete <strong class="is-capitalized"><%= @plan.kind_of_plan %></strong> with <strong class="is-capitalized"><%= @plan.company %></strong>?
+                                Are you sure you want to delete <strong class="is-capitalized"><%= @plan.kind_of_plan %></strong> with <strong class="is-capitalized"><%= @plan.company %></strong> for family member <strong class="is-capitalized"><%= @family_member.first_name %> <%= @family_member.last_name %></strong>?
                             </p>
                             <br>
                             <form method="post" action="/plans/<%= @plan.id %>">
