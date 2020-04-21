@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     post '/signup' do
         if params[:username] == "" || params[:password_digest] == ""
             redirect '/signup'
-
+            # add validation here
             # if user is not unique redirect to signup
             # else continue below
         else
