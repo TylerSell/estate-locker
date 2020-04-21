@@ -9,6 +9,15 @@
                         <p class="title has-text-centered">
                             Sign Up
                         </p>
+                        <% if flash[:user_not_found] %>
+                            <p class="subtitle is-danger has-text-centered">
+                                <%= flash[:user_not_found] %>
+                            </p>
+                        <% elsif flash[:password_incorrect] %>
+                            <p class="subtitle is-danger has-text-centered">
+                                <%= flash[:password_incorrect] %>
+                            </p>
+                        <% end %>
                         <form class="input-form" method="post" action="/login">
                             <div class="field">
                                 <label for="username" class="label">Email</label>

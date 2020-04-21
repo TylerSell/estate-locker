@@ -9,6 +9,11 @@
                         <p class="title has-text-centered">
                             Sign Up
                         </p>
+                        <% if flash[:signup_errors] %>
+                            <p class="subtitle is-danger has-text-centered">
+                                <%= flash[:signup_errors] %>
+                            </p>
+                        <% end %>
                         <form class="input-form" method="post" action="/signup">
                             <div class="field">
                                 <label for="first_name" class="label">First Name</label>

@@ -9,17 +9,29 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        if params[:username] == "" || params[:password_digest] == ""
-            redirect '/signup'
-            # add validation here
-            # if user is not unique redirect to signup
-            # else continue below
-        else
-            @user = User.new(:first_name => params[:first_name], :last_name => params[:last_name], :username => params[:username], :password => params[:password])
-            @user.save
-            session[:user_id] = @user.id
+        user = User.new(:first_name => params[:first_name], :last_name => params[:last_name], :username => params[:username], :password => params[:password])
+        if user.save 
+            session[:user_id] = user.id 
             redirect '/family_members'
-        end
+        else 
+            flash[:signup_errors] = user.errors.full_messages.to_sentence
+            redirect '/signup'
+        end 
+        
+        # # original code
+        # if params[:username] == "" || params[:password_digest] == ""
+        #     flash[:error_blank] = "Your username or password cannot be blank!"
+        #     redirect '/signup'
+        #     # add validation here
+        #     # if user is not unique redirect to signup
+        #     # else continue below
+        #     flash[:username_already_exists] = "That username already exists."
+        # else
+        #     @user = User.new(:first_name => params[:first_name], :last_name => params[:last_name], :username => params[:username], :password => params[:password])
+        #     @user.save
+        #     session[:user_id] = @user.id
+        #     redirect '/family_members'
+        # end
     end
 
     get '/login' do 
@@ -32,11 +44,15 @@ class UsersController < ApplicationController
 
     post '/login' do
         @user = User.find_by(:username => params[:username])
-        if @user && @user.authenticate(params[:password])
+        if !@user
+            flash[:user_not_found] = "Username not found or is incorrect!"
+            redirect '/login'
+        elsif @user && !@user.authenticate(params[:password])
+            flash[:password_incorrect] = "Password is incorrect!"
+            redirect '/login'
+        else @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect '/family_members'
-        else
-            redirect '/login'
         end
     end
 
