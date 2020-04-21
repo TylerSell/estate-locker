@@ -10,11 +10,11 @@
                             Sign Up
                         </p>
                         <% if flash[:user_not_found] %>
-                            <p class="subtitle is-danger has-text-centered">
+                            <p class="subtitle has-text-danger has-text-centered">
                                 <%= flash[:user_not_found] %>
                             </p>
                         <% elsif flash[:password_incorrect] %>
-                            <p class="subtitle is-danger has-text-centered">
+                            <p class="subtitle has-text-danger has-text-centered">
                                 <%= flash[:password_incorrect] %>
                             </p>
                         <% end %>
