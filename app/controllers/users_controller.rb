@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     post '/signup' do
         if params[:username] == "" || params[:password_digest] == ""
             redirect '/signup'
+
+            # if user is not unique redirect to signup
+            # else continue below
         else
             @user = User.new(:first_name => params[:first_name], :last_name => params[:last_name], :username => params[:username], :password => params[:password])
             @user.save
